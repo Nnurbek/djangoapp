@@ -9,7 +9,7 @@ urlpatterns = [
     path('success/', views.file_upload_success, name='file_upload_success'),
     path('files/', views.list_files, name='list_files'),
     path('courses/', views.list_courses, name='list_courses'),
-    path('api/files/', views.api_get_files, name='api_get_files'),
+    
  
 ]
 if settings.DEBUG:
