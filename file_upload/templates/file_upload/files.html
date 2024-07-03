@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Files</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li:nth-child(odd) {
+            background: #ececec;
+        }
+        .file-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .file-info span {
+            margin: 2px 0;
+        }
+        .download-link {
+            text-decoration: none;
+            color: #1a73e8;
+            font-weight: bold;
+        }
+        .download-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Uploaded Files</h1>
+        <ul>
+            {% for file in files %}
+                <li>
+                    <div class="file-info">
+                        <span>Course: {{ file.course.course_name }}</span>
+                        <span>Student ID: {{ file.student_id }}</span>
+                        <span>File Name: {{ file.file.name|slice:'12:' }}</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
